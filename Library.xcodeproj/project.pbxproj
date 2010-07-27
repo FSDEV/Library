@@ -1,0 +1,464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		DA08F7DC11FE68150077E42D /* Vector */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DA08F7ED11FE68520077E42D /* Build configuration list for PBXAggregateTarget "Vector" */;
+			buildPhases = (
+			);
+			dependencies = (
+				DA08F7E211FE681B0077E42D /* PBXTargetDependency */,
+				DA08F7E011FE681B0077E42D /* PBXTargetDependency */,
+			);
+			name = Vector;
+			productName = Vector;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		DA08F7CA11FE676F0077E42D /* vector-test.m in Sources */ = {isa = PBXBuildFile; fileRef = DA08F7BB11FE673A0077E42D /* vector-test.m */; };
+		DA08F7D511FE67BA0077E42D /* vector-test.m in Sources */ = {isa = PBXBuildFile; fileRef = DA08F7BB11FE673A0077E42D /* vector-test.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA08F7DF11FE681B0077E42D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEDF51311FE66B80087D479 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA08F7CF11FE67990077E42D /* Vector IA64 */;
+			remoteInfo = "Vector IA64";
+		};
+		DA08F7E111FE681B0077E42D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEDF51311FE66B80087D479 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA08F7C211FE675D0077E42D /* Vector IA32 */;
+			remoteInfo = "Vector IA32";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA08F7B411FE67020077E42D /* FSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSLog.h; path = src/FSLog.h; sourceTree = "<group>"; };
+		DA08F7B511FE67020077E42D /* FSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSLog.m; path = src/FSLog.m; sourceTree = "<group>"; };
+		DA08F7B611FE67020077E42D /* FSZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSZip.h; path = src/FSZip.h; sourceTree = "<group>"; };
+		DA08F7B711FE67020077E42D /* FSZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSZip.m; path = src/FSZip.m; sourceTree = "<group>"; };
+		DA08F7B811FE67020077E42D /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector.h; path = src/vector.h; sourceTree = "<group>"; };
+		DA08F7BA11FE673A0077E42D /* vector-test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "vector-test.h"; path = "src-test/vector-test.h"; sourceTree = "<group>"; };
+		DA08F7BB11FE673A0077E42D /* vector-test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "vector-test.m"; path = "src-test/vector-test.m"; sourceTree = "<group>"; };
+		DA08F7C311FE675D0077E42D /* Vector.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Vector.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA08F7C511FE675D0077E42D /* Vector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vector-Info.plist"; sourceTree = "<group>"; };
+		DA08F7D011FE67990077E42D /* Vector IA64.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Vector IA64.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA08F7D111FE67990077E42D /* Vector IA64-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vector IA64-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA08F7C011FE675D0077E42D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA08F7CD11FE67990077E42D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA08F7B311FE66F00077E42D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DA08F7B411FE67020077E42D /* FSLog.h */,
+				DA08F7B511FE67020077E42D /* FSLog.m */,
+				DA08F7B611FE67020077E42D /* FSZip.h */,
+				DA08F7B711FE67020077E42D /* FSZip.m */,
+				DA08F7B811FE67020077E42D /* vector.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		DA08F7B911FE67290077E42D /* src-test */ = {
+			isa = PBXGroup;
+			children = (
+				DA08F7BA11FE673A0077E42D /* vector-test.h */,
+				DA08F7BB11FE673A0077E42D /* vector-test.m */,
+			);
+			name = "src-test";
+			sourceTree = "<group>";
+		};
+		DA08F7BC11FE67430077E42D /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		DA08F7BD11FE674C0077E42D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA08F7C511FE675D0077E42D /* Vector-Info.plist */,
+				DA08F7D111FE67990077E42D /* Vector IA64-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DA08F7C411FE675D0077E42D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA08F7C311FE675D0077E42D /* Vector.octest */,
+				DA08F7D011FE67990077E42D /* Vector IA64.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAEDF51111FE66B80087D479 = {
+			isa = PBXGroup;
+			children = (
+				DA08F7B311FE66F00077E42D /* src */,
+				DA08F7B911FE67290077E42D /* src-test */,
+				DA08F7BD11FE674C0077E42D /* Resources */,
+				DA08F7BC11FE67430077E42D /* Linked Frameworks */,
+				DA08F7C411FE675D0077E42D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA08F7C211FE675D0077E42D /* Vector IA32 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA08F7C811FE675E0077E42D /* Build configuration list for PBXNativeTarget "Vector IA32" */;
+			buildPhases = (
+				DA08F7BE11FE675D0077E42D /* Resources */,
+				DA08F7BF11FE675D0077E42D /* Sources */,
+				DA08F7C011FE675D0077E42D /* Frameworks */,
+				DA08F7C111FE675D0077E42D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Vector IA32";
+			productName = Vector;
+			productReference = DA08F7C311FE675D0077E42D /* Vector.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		DA08F7CF11FE67990077E42D /* Vector IA64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA08F7D411FE67990077E42D /* Build configuration list for PBXNativeTarget "Vector IA64" */;
+			buildPhases = (
+				DA08F7CB11FE67990077E42D /* Resources */,
+				DA08F7CC11FE67990077E42D /* Sources */,
+				DA08F7CD11FE67990077E42D /* Frameworks */,
+				DA08F7CE11FE67990077E42D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Vector IA64";
+			productName = "Vector IA64";
+			productReference = DA08F7D011FE67990077E42D /* Vector IA64.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAEDF51311FE66B80087D479 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = DAEDF51611FE66B80087D479 /* Build configuration list for PBXProject "Library" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = DAEDF51111FE66B80087D479;
+			productRefGroup = DA08F7C411FE675D0077E42D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA08F7C211FE675D0077E42D /* Vector IA32 */,
+				DA08F7CF11FE67990077E42D /* Vector IA64 */,
+				DA08F7DC11FE68150077E42D /* Vector */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA08F7BE11FE675D0077E42D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA08F7CB11FE67990077E42D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DA08F7C111FE675D0077E42D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		DA08F7CE11FE67990077E42D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA08F7BF11FE675D0077E42D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA08F7CA11FE676F0077E42D /* vector-test.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA08F7CC11FE67990077E42D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA08F7D511FE67BA0077E42D /* vector-test.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA08F7E011FE681B0077E42D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA08F7CF11FE67990077E42D /* Vector IA64 */;
+			targetProxy = DA08F7DF11FE681B0077E42D /* PBXContainerItemProxy */;
+		};
+		DA08F7E211FE681B0077E42D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA08F7C211FE675D0077E42D /* Vector IA32 */;
+			targetProxy = DA08F7E111FE681B0077E42D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DA08F7C611FE675E0077E42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Vector-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Vector;
+				VALID_ARCHS = i386;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DA08F7C711FE675E0077E42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Vector-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Vector;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		DA08F7D211FE67990077E42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Vector IA64-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Vector IA64";
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DA08F7D311FE67990077E42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Vector IA64-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Vector IA64";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		DA08F7DD11FE68150077E42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Vector;
+			};
+			name = Debug;
+		};
+		DA08F7DE11FE68150077E42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Vector;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		DAEDF51411FE66B80087D479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		DAEDF51511FE66B80087D479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA08F7C811FE675E0077E42D /* Build configuration list for PBXNativeTarget "Vector IA32" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA08F7C611FE675E0077E42D /* Debug */,
+				DA08F7C711FE675E0077E42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA08F7D411FE67990077E42D /* Build configuration list for PBXNativeTarget "Vector IA64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA08F7D211FE67990077E42D /* Debug */,
+				DA08F7D311FE67990077E42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA08F7ED11FE68520077E42D /* Build configuration list for PBXAggregateTarget "Vector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA08F7DD11FE68150077E42D /* Debug */,
+				DA08F7DE11FE68150077E42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAEDF51611FE66B80087D479 /* Build configuration list for PBXProject "Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAEDF51411FE66B80087D479 /* Debug */,
+				DAEDF51511FE66B80087D479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAEDF51311FE66B80087D479 /* Project object */;
+}

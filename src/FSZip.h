@@ -1,5 +1,5 @@
 /**
- * Obfuscates the use of a ZIP file through libzip into a nice Cocoa class.  Like most good
+ * Abstracts the use of a ZIP file through libzip into a nice Cocoa class.  Like most good
  * things in life, this is not thread-safe.
  *
  * Download, build, and install libzip from http://nih.at/libzip.  (usual ./configure, make,

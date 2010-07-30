@@ -89,7 +89,7 @@ void logErrorStuff(int error) {
  */
 - (NSData *)dataForFile:(NSString *)file {
 	NSAutoreleasePool * pool0 = [[NSAutoreleasePool alloc] init];
-	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_COMPRESSED);
+	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_UNCHANGED);
 	if(zf==NULL) {
 		NSLog(@"FSZip: Unable to load %@",file);
 		return nil;
@@ -115,7 +115,7 @@ void logErrorStuff(int error) {
  */
 - (void *)cDataForFile:(NSString *)file
 			  ofLength:(size_t*)len {
-	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_COMPRESSED);
+	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_UNCHANGED);
 	if(zf==NULL) {
 		NSLog(@"FSZip: Unable to load %@",file);
 		(*len) = 0;
@@ -150,7 +150,7 @@ void logErrorStuff(int error) {
  * conjunction with <code>readCDataFromFile:bytesRead:</code>.
  */
 - (struct zip_file *)cFileForName:(NSString *)file {
-	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_COMPRESSED);
+	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_UNCHANGED);
 	if(zf==NULL) {
 		NSLog(@"FSZip: Unable to load %@",file);
 		return NULL;

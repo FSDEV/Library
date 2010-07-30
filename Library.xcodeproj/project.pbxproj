@@ -31,14 +31,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEDF51311FE66B80087D479 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DA08F7CF11FE67990077E42D /* Vector IA64 */;
+			remoteGlobalIDString = DA08F7CF11FE67990077E42D;
 			remoteInfo = "Vector IA64";
 		};
 		DA08F7E111FE681B0077E42D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEDF51311FE66B80087D479 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DA08F7C211FE675D0077E42D /* Vector IA32 */;
+			remoteGlobalIDString = DA08F7C211FE675D0077E42D;
 			remoteInfo = "Vector IA32";
 		};
 /* End PBXContainerItemProxy section */

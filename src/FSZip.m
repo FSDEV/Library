@@ -58,7 +58,6 @@ void logErrorStuff(int error) {
 @synthesize lzip;
 @synthesize chunksize;
 @synthesize inbuff;
-//@synthesize files;
 
 - (id)initWithFileName:(NSString *)file {
 	if(self=[self init]) {
@@ -82,11 +81,6 @@ void logErrorStuff(int error) {
 	return [NSArray arrayWithArray:[_files autorelease]];
 }
 
-/**
- * Grabs the entire file and puts it into an NSData object.
- *
- * Not a good idea for especially large files.
- */
 - (NSData *)dataForFile:(NSString *)file {
 	NSAutoreleasePool * pool0 = [[NSAutoreleasePool alloc] init];
 	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_UNCHANGED);
@@ -107,12 +101,6 @@ void logErrorStuff(int error) {
 	return [NSData dataWithData:[zdata autorelease]];
 }
 
-/**
- * Grabs the entire file and puts it into a void array, returning by reference
- * the length of the array.
- *
- * Not a good idea for especially large files.
- */
 - (void *)cDataForFile:(NSString *)file
 			  ofLength:(size_t*)len {
 	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_UNCHANGED);
@@ -130,25 +118,12 @@ void logErrorStuff(int error) {
 	return toReturn;
 }
 
-/**
- * Reads <code>chunksize</code> bytes from the specified zip file into <code>buff</code>
- * and returning by reference <code>bytes</code> bytes read.  You are responsible for
- * ensuring that <code>buff</code> has enough memory to accept <code>chunksize</code>
- * bytes, or you will be overwriting other memory and perhaps incur major errors.
- *
- * This is a streaming tool.  This is good if you have a file that is larger than
- * 1MiB that you're attempting to perform some kind of streamable operation on.
- */
 - (void)readCDataFromFile:(struct zip_file *)file
 					 into:(void *)buff
 				bytesRead:(size_t *)bytes {
 	(*bytes) = zip_fread(file, buff, chunksize);
 }
 
-/**
- * Returns the zip_file structure associated with a specific file name; used in
- * conjunction with <code>readCDataFromFile:bytesRead:</code>.
- */
 - (struct zip_file *)cFileForName:(NSString *)file {
 	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_UNCHANGED);
 	if(zf==NULL) {

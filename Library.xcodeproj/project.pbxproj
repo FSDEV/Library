@@ -19,6 +19,17 @@
 			name = Vector;
 			productName = Vector;
 		};
+		DA1B3CE11205025100F59106 /* FSZip */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DA1B3CE41205027000F59106 /* Build configuration list for PBXAggregateTarget "FSZip" */;
+			buildPhases = (
+				DA1B3CE01205025100F59106 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = FSZip;
+			productName = FSZip;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -55,6 +66,11 @@
 		DA08F7C511FE675D0077E42D /* Vector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vector-Info.plist"; sourceTree = "<group>"; };
 		DA08F7D011FE67990077E42D /* Vector IA64.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Vector IA64.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA08F7D111FE67990077E42D /* Vector IA64-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vector IA64-Info.plist"; sourceTree = "<group>"; };
+		DA1B3D3612050C2E00F59106 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		DA1B3D3712050C2E00F59106 /* test0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test0.txt; sourceTree = "<group>"; };
+		DA1B3D3812050C2E00F59106 /* test1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.txt; sourceTree = "<group>"; };
+		DA1B3D3912050C6000F59106 /* testCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testCompat.m; sourceTree = "<group>"; };
+		DA1B3D6612052C0200F59106 /* testWrite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testWrite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +106,7 @@
 		DA08F7B911FE67290077E42D /* src-test */ = {
 			isa = PBXGroup;
 			children = (
+				DA1B3D3512050C1100F59106 /* FSZip-test */,
 				DA08F7BA11FE673A0077E42D /* vector-test.h */,
 				DA08F7BB11FE673A0077E42D /* vector-test.m */,
 			);
@@ -119,6 +136,19 @@
 				DA08F7D011FE67990077E42D /* Vector IA64.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DA1B3D3512050C1100F59106 /* FSZip-test */ = {
+			isa = PBXGroup;
+			children = (
+				DA1B3D3612050C2E00F59106 /* README */,
+				DA1B3D3712050C2E00F59106 /* test0.txt */,
+				DA1B3D3812050C2E00F59106 /* test1.txt */,
+				DA1B3D3912050C6000F59106 /* testCompat.m */,
+				DA1B3D6612052C0200F59106 /* testWrite.m */,
+			);
+			name = "FSZip-test";
+			path = "src-test/FSZip-test";
 			sourceTree = "<group>";
 		};
 		DAEDF51111FE66B80087D479 = {
@@ -187,6 +217,7 @@
 				DA08F7C211FE675D0077E42D /* Vector IA32 */,
 				DA08F7CF11FE67990077E42D /* Vector IA64 */,
 				DA08F7DC11FE68150077E42D /* Vector */,
+				DA1B3CE11205025100F59106 /* FSZip */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +265,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		DA1B3CE01205025100F59106 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\nif [ ! -x `which zip` ]; then\n  echo \"Cannot run system ZIP for compatibility testing.  Stop.\"\n  exit -1\nfi\n\nWORK_DIR=${BUILT_PRODUCTS_DIR}/FSZip-test.build\nif [ -e $WORK_DIR ] && [ ! -d $WORK_DIR ]; then\n  rm -rf $WORK_DIR\nfi\nif [ ! -d $WORK_DIR ]; then\n  mkdir -p $WORK_DIR\nfi\n\n# grab some things from src-test/FSZip-test and zip it up\n\nif [ -f $WORK_DIR/syszip.zip ]; then\n  rm -f $WORK_DIR/syszip.zip\nfi\nzip -rj $WORK_DIR/syszip.zip $PROJECT_DIR/src-test/FSZip-test/test?.txt\n\n# $WORK_DIR/syszip.zip should now have two files: test0.txt, and text1.txt\n# test0.txt:\n# FooEOF\n# test1.txt:\n# BarEOF\n\n# Build the FSZip library for testing\nclang $PROJECT_DIR/src/FSZip.m -o $WORK_DIR/FSZip.o -c\nif [ ! -e $WORK_DIR/FSZip.o ]; then\n  echo \"Failed to build FSZip.  Check that you have libzip installed.\"\n  exit -1\nfi\n\nclang $PROJECT_DIR/src-test/FSZip-test/testCompat.m $WORK_DIR/FSZip.o -framework Foundation -lzip -o $WORK_DIR/testCompat.out\n\nif [ ! -e $WORK_DIR/testCompat.out ]; then\n  echo \"Failed to build compatibility test.  Stop.\"\n  exit -1\nfi\n\n$WORK_DIR/testCompat.out $WORK_DIR/syszip.zip\n\nclang $PROJECT_DIR/src-test/FSZip-test/testWrite.m $WORK_DIR/FSZip.o -framework Foundation -lzip -o $WORK_DIR/testWrite.out\n\nif [ ! -e $WORK_DIR/testWrite.out ]; then\n  echo \"Failed to build write test.  Stop.\"\n  exit -1\nfi\n\n$WORK_DIR/testWrite.out $WORK_DIR/fszip.zip \\\n  $PROJECT_DIR/src-test/FSZip-test/test?.txt\n\nexit 0";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -405,6 +450,27 @@
 			};
 			name = Release;
 		};
+		DA1B3CE21205025200F59106 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = FSZip;
+			};
+			name = Debug;
+		};
+		DA1B3CE31205025200F59106 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = FSZip;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		DAEDF51411FE66B80087D479 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -445,6 +511,15 @@
 			buildConfigurations = (
 				DA08F7DD11FE68150077E42D /* Debug */,
 				DA08F7DE11FE68150077E42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA1B3CE41205027000F59106 /* Build configuration list for PBXAggregateTarget "FSZip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA1B3CE21205025200F59106 /* Debug */,
+				DA1B3CE31205025200F59106 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

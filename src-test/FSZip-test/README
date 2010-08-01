@@ -1,0 +1,1 @@
+FSZip, to be properly tested, requires a fair bit more work.  As such, it uses a custom test script instead of a Xcode-scaffolded OCUnit framework.

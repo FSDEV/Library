@@ -57,7 +57,14 @@
 @property(readwrite,assign) void * inbuff;		//! input buffer pointer
 @property(readonly) int files;					//! number of files in the archive
 
-- (id)initWithFileName:(NSString *)file;		//! initialize with a zip file
+/**
+ * Opens a file as a ZIP archive, either opening a new file or creating a new archive to
+ * be written to.  If it is creating a new archive, then that archive will not show up
+ * on disk until the FSZip object deallocates or the <code>writeToDisk</code> method is
+ * called.
+ */
+- (id)initWithFileName:(NSString *)file;
+
 - (NSArray *)containedFiles;					//! listing of contained files
 
 /**
@@ -88,16 +95,62 @@
 				bytesRead:(size_t *)bytes;
 
 /**
+ * Renames file <code>oldName</code> to <code>newName</code>.
+ */
+- (BOOL)rename:(NSString *)oldName
+            to:(NSString *)newName;
+
+/**
  * Every file in a ZIP archive can have a comment.  Returns <code>nil</code> if there
  * is no such file.
  */
 - (NSString *)commentForFile:(NSString *)file;
 
 /**
- * Sets the comment for any given file.  Will fail silently.
+ * Sets the comment for any given file.
  */
-- (void)setComment:(NSString *)comment
+- (BOOL)setComment:(NSString *)comment
            forFile:(NSString *)file;
+
+/**
+ * Write <code>data</code> to <code>file</code>.  Really quite simple.
+ */
+- (BOOL)writeData:(NSData *)data
+           toFile:(NSString *)file;
+
+/**
+ * Despite the horrible naming scheme, this takes the contents of the file on the local
+ * disk described by <code>filePath</code> and compresses it into <code>file</code> in
+ * the ZIP archive.
+ */
+- (BOOL)writeFile:(NSString *)filePath
+           toFile:(NSString *)file;
+
+/**
+ * Changes the name of the file <code>oldName</code> and moves it to <code>newName</code>
+ */
+- (BOOL)renameFile:(NSString *)oldName
+                to:(NSString *)newName;
+
+/**
+ * Deletes a file.
+ */
+- (BOOL)deleteFile:(NSString *)file;
+
+/**
+ * Panic and undo all pending changes to the archive.
+ */
+- (BOOL)panic;
+
+/**
+ * Panic and undo all changes to a specific file.
+ */
+- (BOOL)panicFile:(NSString *)file;
+
+/**
+ * Index of a specific file in the ZIP archive.
+ */
+- (NSUInteger)indexOfFile:(NSString *)file;
 
 /**
  * Returns the zip_file structure associated with a specific file name; used in

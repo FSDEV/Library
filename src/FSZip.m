@@ -60,7 +60,8 @@ void logErrorStuff(int error) {
 @synthesize inbuff;
 
 - (id)initWithFileName:(NSString *)file {
-	if(self=[self init]) {
+    self = [self init];
+	if(self) {
 #if DEBUG
 		NSLog(@"FSZip: Attempting to open %@ as ZIP file.",file);
 #endif
@@ -132,17 +133,24 @@ void logErrorStuff(int error) {
     int comment_length;
     if(index==NSNotFound)
         return nil;
-    char * comment = zip_get_file_comment(lzip, ((int)index), &comment_length, ZIP_FL_UNCHANGED);
-    return [NSString stringWithCString:comment
-                                length:comment_length];
+    const char * comment = zip_get_file_comment(lzip, ((int)index), &comment_length, ZIP_FL_UNCHANGED);
+    return [NSString stringWithUTF8String:comment];
 }
 
-- (void)setComment:(NSString *)comment
+- (BOOL)setComment:(NSString *)comment
            forFile:(NSString *)file {
     NSUInteger index = [self indexOfFile:file];
     if(index==NSNotFound) 
-        return;
-    zip_set_file_comment(lzip, ((int)index), [comment UTF8String], [comment length]);
+        return NO;
+    return zip_set_file_comment(lzip, ((int)index), [comment UTF8String], [comment length]) == 0;
+}
+
+- (BOOL)rename:(NSString *)oldName
+            to:(NSString *)newName {
+    NSUInteger index = [self indexOfFile:oldName];
+    if(index==NSNotFound)
+        return NO;
+    return zip_rename(lzip, ((int)index), [newName UTF8String]) == 0;
 }
 
 - (struct zip_file *)cFileForName:(NSString *)file {
@@ -154,13 +162,73 @@ void logErrorStuff(int error) {
 	return zf;
 }
 
+- (BOOL)writeData:(NSData *)data
+           toFile:(NSString *)file {
+    struct zip_source * src = zip_source_buffer(lzip, [data bytes], [data length], 0);
+    if(src==NULL)
+        return NO;
+    int result;
+    if([[self containedFiles] indexOfObject:file]==NSNotFound)
+        result = zip_add(lzip, [file UTF8String], src);
+    else
+        result = zip_replace(lzip, [[self containedFiles] indexOfObject:file], src);
+    files=-1;
+    [_containedFiles release];
+    _containedFiles = nil;
+    return result != -1;
+}
+
+- (BOOL)writeFile:(NSString *)filePath
+           toFile:(NSString *)file {
+    struct zip_source * src = zip_source_file(lzip, [filePath UTF8String], 0, -1);
+    if(src==NULL)
+        return NO;
+    int result;
+    if([[self containedFiles] indexOfObject:file]==NSNotFound)
+        result = zip_add(lzip, [file UTF8String], src);
+    else
+        result = zip_replace(lzip, [[self containedFiles] indexOfObject:file], src);
+    files=-1;
+    [_containedFiles release];
+    _containedFiles = nil;
+    return result != -1;
+}
+
+- (BOOL)deleteFile:(NSString *)file {
+    NSUInteger index = [self indexOfFile:file];
+    int result;
+    if(index==NSNotFound)
+        return NO;
+    else
+        result = zip_delete(lzip, ((int)index));
+    return result==0;
+}
+
+- (BOOL)panic {
+    return zip_unchange_all(lzip)==0;
+}
+
+- (BOOL)panicFile:(NSString *)file {
+    NSUInteger index = [self indexOfFile:file];
+    if(index==NSNotFound)
+        return NO;
+    return zip_unchange(lzip, ((int)index))==0;
+}
+
+- (BOOL)renameFile:(NSString *)oldName
+                to:(NSString *)newName {
+    // zip_rename(struct zip *archive, int index, const char *name)
+    NSUInteger index = [self indexOfFile:oldName];
+    if(index==NSNotFound)
+        return NO;
+    return zip_rename(lzip, ((int)index), [newName UTF8String])==0;
+}
+
 - (int)files {
 	if(files==-1)
 		files = zip_get_num_files(lzip);
 	return files;
 }
-
-#pragma mark Private Methods
 
 - (NSUInteger)indexOfFile:(NSString *)file {
     return [[self containedFiles] indexOfObject:file]; 

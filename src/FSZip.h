@@ -60,8 +60,7 @@
 /**
  * Opens a file as a ZIP archive, either opening a new file or creating a new archive to
  * be written to.  If it is creating a new archive, then that archive will not show up
- * on disk until the FSZip object deallocates or the <code>writeToDisk</code> method is
- * called.
+ * on disk until the FSZip object deallocates.
  */
 - (id)initWithFileName:(NSString *)file;
 

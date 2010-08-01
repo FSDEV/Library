@@ -65,7 +65,7 @@ void logErrorStuff(int error) {
 		NSLog(@"FSZip: Attempting to open %@ as ZIP file.",file);
 #endif
 		int error=0;
-		lzip = zip_open([file UTF8String], 0, &error);
+		lzip = zip_open([file UTF8String], ZIP_CREATE, &error); // Create the archive if it doesn't exist
 		if(error!=0) {
 			logErrorStuff(error);
 			return nil;
@@ -75,10 +75,13 @@ void logErrorStuff(int error) {
 }
 
 - (NSArray*)containedFiles {
-	NSMutableArray * _files = [[NSMutableArray alloc] initWithCapacity:self.files];
-	for(int i=0; i<self.files; ++i)
-		[_files addObject:[NSString stringWithUTF8String:zip_get_name(lzip, i, 0)]];
-	return [NSArray arrayWithArray:[_files autorelease]];
+    if(!_containedFiles) {
+        NSMutableArray * _files = [[NSMutableArray alloc] initWithCapacity:self.files];
+        for(int i=0; i<self.files; ++i)
+            [_files addObject:[NSString stringWithUTF8String:zip_get_name(lzip, i, 0)]];
+        _containedFiles = [NSArray arrayWithArray:[_files autorelease]];
+    }
+	return _containedFiles;
 }
 
 - (NSData *)dataForFile:(NSString *)file {
@@ -124,6 +127,24 @@ void logErrorStuff(int error) {
 	(*bytes) = zip_fread(file, buff, chunksize);
 }
 
+- (NSString *)commentForFile:(NSString *)file {
+    NSUInteger index = [self indexOfFile:file];
+    int comment_length;
+    if(index==NSNotFound)
+        return nil;
+    char * comment = zip_get_file_comment(lzip, ((int)index), &comment_length, ZIP_FL_UNCHANGED);
+    return [NSString stringWithCString:comment
+                                length:comment_length];
+}
+
+- (void)setComment:(NSString *)comment
+           forFile:(NSString *)file {
+    NSUInteger index = [self indexOfFile:file];
+    if(index==NSNotFound) 
+        return;
+    zip_set_file_comment(lzip, ((int)index), [comment UTF8String], [comment length]);
+}
+
 - (struct zip_file *)cFileForName:(NSString *)file {
 	struct zip_file * zf = zip_fopen(lzip,[file UTF8String], ZIP_FL_UNCHANGED);
 	if(zf==NULL) {
@@ -137,6 +158,12 @@ void logErrorStuff(int error) {
 	if(files==-1)
 		files = zip_get_num_files(lzip);
 	return files;
+}
+
+#pragma mark Private Methods
+
+- (NSUInteger)indexOfFile:(NSString *)file {
+    return [[self containedFiles] indexOfObject:file]; 
 }
 
 #pragma mark NSObject

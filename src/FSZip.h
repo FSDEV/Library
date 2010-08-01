@@ -49,6 +49,7 @@
 	int chunksize;
 	void * inbuff;
 	int files;
+    NSArray * _containedFiles;
 }
 
 @property(readwrite,assign) struct zip * lzip;	//! it is inadvisable to modify this
@@ -85,6 +86,18 @@
 - (void)readCDataFromFile:(struct zip_file *)file
 					 into:(void *)buff
 				bytesRead:(size_t *)bytes;
+
+/**
+ * Every file in a ZIP archive can have a comment.  Returns <code>nil</code> if there
+ * is no such file.
+ */
+- (NSString *)commentForFile:(NSString *)file;
+
+/**
+ * Sets the comment for any given file.  Will fail silently.
+ */
+- (void)setComment:(NSString *)comment
+           forFile:(NSString *)file;
 
 /**
  * Returns the zip_file structure associated with a specific file name; used in

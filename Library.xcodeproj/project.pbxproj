@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -19,22 +19,17 @@
 			name = Vector;
 			productName = Vector;
 		};
-		DA1B3CE11205025100F59106 /* FSZip */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = DA1B3CE41205027000F59106 /* Build configuration list for PBXAggregateTarget "FSZip" */;
-			buildPhases = (
-				DA1B3CE01205025100F59106 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = FSZip;
-			productName = FSZip;
-		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		DA08F7CA11FE676F0077E42D /* vector-test.m in Sources */ = {isa = PBXBuildFile; fileRef = DA08F7BB11FE673A0077E42D /* vector-test.m */; };
 		DA08F7D511FE67BA0077E42D /* vector-test.m in Sources */ = {isa = PBXBuildFile; fileRef = DA08F7BB11FE673A0077E42D /* vector-test.m */; };
+		DA5652D71209139B00E1E650 /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5652D61209139B00E1E650 /* libzip.dylib */; };
+		DA5652D9120913C900E1E650 /* FSZip.m in Sources */ = {isa = PBXBuildFile; fileRef = DA08F7B711FE67020077E42D /* FSZip.m */; };
+		DA5652DA120913CD00E1E650 /* testWrite.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B3D6612052C0200F59106 /* testWrite.m */; };
+		DA5652E9120914F200E1E650 /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5652D61209139B00E1E650 /* libzip.dylib */; };
+		DA5652EB1209151700E1E650 /* testCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B3D3912050C6000F59106 /* testCompat.m */; };
+		DA5652EC1209152B00E1E650 /* FSZip.m in Sources */ = {isa = PBXBuildFile; fileRef = DA08F7B711FE67020077E42D /* FSZip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +66,9 @@
 		DA1B3D3812050C2E00F59106 /* test1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.txt; sourceTree = "<group>"; };
 		DA1B3D3912050C6000F59106 /* testCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testCompat.m; sourceTree = "<group>"; };
 		DA1B3D6612052C0200F59106 /* testWrite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testWrite.m; sourceTree = "<group>"; };
+		DA5652D21209138600E1E650 /* FSZip-testWrite */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "FSZip-testWrite"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA5652D61209139B00E1E650 /* libzip.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzip.dylib; path = /usr/local/lib/libzip.dylib; sourceTree = "<absolute>"; };
+		DA5652E5120914E400E1E650 /* FSZip-testRead */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "FSZip-testRead"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +83,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA5652D01209138600E1E650 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA5652D71209139B00E1E650 /* libzip.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA5652E3120914E400E1E650 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA5652E9120914F200E1E650 /* libzip.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +130,7 @@
 		DA08F7BC11FE67430077E42D /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA5652D61209139B00E1E650 /* libzip.dylib */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -134,6 +149,8 @@
 			children = (
 				DA08F7C311FE675D0077E42D /* Vector.octest */,
 				DA08F7D011FE67990077E42D /* Vector IA64.octest */,
+				DA5652D21209138600E1E650 /* FSZip-testWrite */,
+				DA5652E5120914E400E1E650 /* FSZip-testRead */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,13 +218,50 @@
 			productReference = DA08F7D011FE67990077E42D /* Vector IA64.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		DA5652D11209138600E1E650 /* FSZip-testWrite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA5652D81209139C00E1E650 /* Build configuration list for PBXNativeTarget "FSZip-testWrite" */;
+			buildPhases = (
+				DA5652CF1209138600E1E650 /* Sources */,
+				DA5652D01209138600E1E650 /* Frameworks */,
+				DA5652F11209160300E1E650 /* Remove Old Archive */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FSZip-testWrite";
+			productName = "FSZip-testWrite";
+			productReference = DA5652D21209138600E1E650 /* FSZip-testWrite */;
+			productType = "com.apple.product-type.tool";
+		};
+		DA5652E4120914E400E1E650 /* FSZip-testCompat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA5652EF1209157000E1E650 /* Build configuration list for PBXNativeTarget "FSZip-testCompat" */;
+			buildPhases = (
+				DA5652E2120914E400E1E650 /* Sources */,
+				DA5652E3120914E400E1E650 /* Frameworks */,
+				DA5652EE1209155200E1E650 /* Create ZIP Archive */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FSZip-testCompat";
+			productName = "FSZip-testRead";
+			productReference = DA5652E5120914E400E1E650 /* FSZip-testRead */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DAEDF51311FE66B80087D479 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = FSDEV;
+			};
 			buildConfigurationList = DAEDF51611FE66B80087D479 /* Build configuration list for PBXProject "Library" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = DAEDF51111FE66B80087D479;
 			productRefGroup = DA08F7C411FE675D0077E42D /* Products */;
@@ -217,7 +271,8 @@
 				DA08F7C211FE675D0077E42D /* Vector IA32 */,
 				DA08F7CF11FE67990077E42D /* Vector IA64 */,
 				DA08F7DC11FE68150077E42D /* Vector */,
-				DA1B3CE11205025100F59106 /* FSZip */,
+				DA5652D11209138600E1E650 /* FSZip-testWrite */,
+				DA5652E4120914E400E1E650 /* FSZip-testCompat */,
 			);
 		};
 /* End PBXProject section */
@@ -266,19 +321,35 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		DA1B3CE01205025100F59106 /* ShellScript */ = {
+		DA5652EE1209155200E1E650 /* Create ZIP Archive */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
+			comments = "Creates a ZIP archive using the system zip archive tool.  If the FSZip tool fails, then there is an compatibility issue.";
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Create ZIP Archive";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# shell script goes here\n\nif [ ! -x `which zip` ]; then\n  echo \"Cannot run system ZIP for compatibility testing.  Stop.\"\n  exit -1\nfi\n\nWORK_DIR=${BUILT_PRODUCTS_DIR}/FSZip-test.build\nif [ -e $WORK_DIR ] && [ ! -d $WORK_DIR ]; then\n  rm -rf $WORK_DIR\nfi\nif [ ! -d $WORK_DIR ]; then\n  mkdir -p $WORK_DIR\nfi\n\n# grab some things from src-test/FSZip-test and zip it up\n\nif [ -f $WORK_DIR/syszip.zip ]; then\n  rm -f $WORK_DIR/syszip.zip\nfi\nzip -rj $WORK_DIR/syszip.zip $PROJECT_DIR/src-test/FSZip-test/test?.txt\n\n# $WORK_DIR/syszip.zip should now have two files: test0.txt, and text1.txt\n# test0.txt:\n# FooEOF\n# test1.txt:\n# BarEOF\n\n# Build the FSZip library for testing\nclang $PROJECT_DIR/src/FSZip.m -o $WORK_DIR/FSZip.o -c\nif [ ! -e $WORK_DIR/FSZip.o ]; then\n  echo \"Failed to build FSZip.  Check that you have libzip installed.\"\n  exit -1\nfi\n\nclang $PROJECT_DIR/src-test/FSZip-test/testCompat.m $WORK_DIR/FSZip.o -framework Foundation -lzip -o $WORK_DIR/testCompat.out\n\nif [ ! -e $WORK_DIR/testCompat.out ]; then\n  echo \"Failed to build compatibility test.  Stop.\"\n  exit -1\nfi\n\n$WORK_DIR/testCompat.out $WORK_DIR/syszip.zip\n\nclang $PROJECT_DIR/src-test/FSZip-test/testWrite.m $WORK_DIR/FSZip.o -framework Foundation -lzip -o $WORK_DIR/testWrite.out\n\nif [ ! -e $WORK_DIR/testWrite.out ]; then\n  echo \"Failed to build write test.  Stop.\"\n  exit -1\nfi\n\n$WORK_DIR/testWrite.out $WORK_DIR/fszip.zip \\\n  $PROJECT_DIR/src-test/FSZip-test/test?.txt\n\nexit 0";
-			showEnvVarsInLog = 0;
+			shellScript = "if [ -e $BUILT_PRODUCTS_DIR/syszip.zip ]; then\n  rm -f $BUiLT_PRODUCTS_DIR/syszip.zip\nfi\n\nzip -rj $BUILT_PRODUCTS_DIR/syszip.zip $PROJECT_DIR/src-test/FSZip-test/test?.txt";
+		};
+		DA5652F11209160300E1E650 /* Remove Old Archive */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "Removes the old ZIP file if it's there.";
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Remove Old Archive";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e $BUILT_PRODUCTS_DIR/fszip.zip ]; then\n  rm -f $BUILT_PRODUCTS_DIR/fszip.zip\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -296,6 +367,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA08F7D511FE67BA0077E42D /* vector-test.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA5652CF1209138600E1E650 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA5652D9120913C900E1E650 /* FSZip.m in Sources */,
+				DA5652DA120913CD00E1E650 /* testWrite.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA5652E2120914E400E1E650 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA5652EC1209152B00E1E650 /* FSZip.m in Sources */,
+				DA5652EB1209151700E1E650 /* testCompat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,8 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -376,8 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -450,23 +537,94 @@
 			};
 			name = Release;
 		};
-		DA1B3CE21205025200F59106 /* Debug */ = {
+		DA5652D41209138700E1E650 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = FSZip;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "FSZip-testWrite";
 			};
 			name = Debug;
 		};
-		DA1B3CE31205025200F59106 /* Release */ = {
+		DA5652D51209138700E1E650 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = FSZip;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "FSZip-testWrite";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		DA5652E7120914E400E1E650 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "FSZip-testRead";
+			};
+			name = Debug;
+		};
+		DA5652E8120914E400E1E650 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "FSZip-testRead";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -475,6 +633,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 			};
 			name = Debug;
 		};
@@ -482,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 			};
 			name = Release;
 		};
@@ -515,11 +675,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA1B3CE41205027000F59106 /* Build configuration list for PBXAggregateTarget "FSZip" */ = {
+		DA5652D81209139C00E1E650 /* Build configuration list for PBXNativeTarget "FSZip-testWrite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DA1B3CE21205025200F59106 /* Debug */,
-				DA1B3CE31205025200F59106 /* Release */,
+				DA5652D41209138700E1E650 /* Debug */,
+				DA5652D51209138700E1E650 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA5652EF1209157000E1E650 /* Build configuration list for PBXNativeTarget "FSZip-testCompat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA5652E7120914E400E1E650 /* Debug */,
+				DA5652E8120914E400E1E650 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

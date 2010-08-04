@@ -94,6 +94,20 @@
 				bytesRead:(size_t *)bytes;
 
 /**
+ * Index of a specific file in the ZIP archive.
+ */
+- (NSUInteger)indexOfFile:(NSString *)file;
+
+/**
+ * Returns the zip_file structure associated with a specific file name; used in
+ * conjunction with <code>readCDataFromFile:bytesRead:</code>.
+ */
+- (struct zip_file *)cFileForName:(NSString *)file;
+
+#pragma mark EXPERIMENTAL
+// This code does not work that well.
+
+/**
  * Renames file <code>oldName</code> to <code>newName</code>.
  */
 - (BOOL)rename:(NSString *)oldName
@@ -145,16 +159,5 @@
  * Panic and undo all changes to a specific file.
  */
 - (BOOL)panicFile:(NSString *)file;
-
-/**
- * Index of a specific file in the ZIP archive.
- */
-- (NSUInteger)indexOfFile:(NSString *)file;
-
-/**
- * Returns the zip_file structure associated with a specific file name; used in
- * conjunction with <code>readCDataFromFile:bytesRead:</code>.
- */
-- (struct zip_file *)cFileForName:(NSString *)file;
 
 @end

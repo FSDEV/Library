@@ -68,8 +68,8 @@ int main(int argc, char *args[]) {
         return -1;
     }
     
-    [zipfile release];
-    [pool0 release];
+    [pool0 release]; // best possible way to force an error
+    [zipfile release]; // will write to disk
     
     return 0;
 }

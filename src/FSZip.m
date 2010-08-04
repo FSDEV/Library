@@ -66,7 +66,9 @@ void logErrorStuff(int error) {
 		NSLog(@"FSZip: Attempting to open %@ as ZIP file.",file);
 #endif
 		int error=0;
-		lzip = zip_open([file UTF8String], ZIP_CREATE, &error); // Create the archive if it doesn't exist
+        char * fCStr = (char*)malloc(sizeof(char)*[file length]);
+        strcpy(fCStr, [file UTF8String]);
+		lzip = zip_open(fCStr, ZIP_CREATE, &error); // Create the archive if it doesn't exist
 		if(error!=0) {
 			logErrorStuff(error);
 			return nil;
@@ -80,7 +82,8 @@ void logErrorStuff(int error) {
         NSMutableArray * _files = [[NSMutableArray alloc] initWithCapacity:self.files];
         for(int i=0; i<self.files; ++i)
             [_files addObject:[NSString stringWithUTF8String:zip_get_name(lzip, i, 0)]];
-        _containedFiles = [NSArray arrayWithArray:[_files autorelease]];
+        _containedFiles = [[NSArray alloc] initWithArray:_files];
+        [_files release];
     }
 	return _containedFiles;
 }
@@ -101,8 +104,10 @@ void logErrorStuff(int error) {
 					length:read];
 	} while (read>0);
 	free(stuff);
+    NSData * stoof = [[NSData alloc] initWithData:zdata];
+    [zdata release];
 	[pool0 release];
-	return [NSData dataWithData:[zdata autorelease]];
+	return [stoof autorelease];
 }
 
 - (void *)cDataForFile:(NSString *)file
@@ -114,7 +119,7 @@ void logErrorStuff(int error) {
 		return NULL;
 	}
 	void * toReturn = (void *)malloc(sizeof(void)*chunksize);
-	int read;
+	int read=0;
 	do {
 		read = zip_fread(zf, toReturn+read, sizeof(void)*chunksize);
 		toReturn = (void *)realloc(toReturn, read+sizeof(void)*chunksize);
@@ -254,6 +259,8 @@ void logErrorStuff(int error) {
 	}
 	if(inbuff!=NULL)
 		free(inbuff);
+    if(_containedFiles)
+        [_containedFiles release];
 	[super dealloc];
 }
 

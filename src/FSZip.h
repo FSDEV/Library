@@ -104,9 +104,6 @@
  */
 - (struct zip_file *)cFileForName:(NSString *)file;
 
-#pragma mark EXPERIMENTAL
-// This code does not work that well.
-
 /**
  * Renames file <code>oldName</code> to <code>newName</code>.
  */

@@ -1,6 +1,15 @@
 /**
  * Abstracts the use of a ZIP file through libzip into a nice Cocoa class.  Like most good
- * things in life, this is not thread-safe.
+ * things in life, this is not thread-safe.  Important things to note:
+ *
+ * <ul>
+ *  <li>All bugs should be reported.  No exceptions.  Once you isolate a bug, just create
+ *      a small program which can reproduce it.  Then send it to me on Github.  I suggest
+ *      you host the program on Gist and link to that in the bug report ticket.</li>
+ *  <li>ALL DATA IS RETAINED UNTIL THE ZIP FILE IS DEALLOCATED.  So, if you're doing a lot
+ *      of write-happy coding, then I suggest that you periodically deallocate and re-alloc
+ *      the ZIP file.</li>
+ * </ul>
  *
  * Download, build, and install libzip from http://nih.at/libzip.  (usual ./configure, make,
  * make install routine).

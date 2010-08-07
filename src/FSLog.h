@@ -74,7 +74,7 @@ void FSLogSetUpDefaults();
  * name.
  */
 @interface FSLogger : NSObject {
-
+    
 	NSMutableArray * _listeners;
 	NSString * _name;
 	

@@ -9,8 +9,8 @@ void FSLog(NSString * format, ...) {
 	va_list args;
 	va_start(args, format);
 	[[FSLogger logger:@""] log:[[[NSString alloc] initWithFormat:format
-														  arguments:args]
-								   autorelease]];
+                                                       arguments:args]
+                                autorelease]];
 }
 NSMutableArray* FSLogGetListeners() {
 	return [[FSLogger logger:@""] listeners];
@@ -51,8 +51,8 @@ void FSLogSetUpDefaults() {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	FSLogRelay * relay;
 	
-//	relay = [FSLogRelay relayForLogger:FSLogLevelWarning];
-//	[[[FSLogger logger:FSLogLevelError] listeners] addObject:relay];
+    //	relay = [FSLogRelay relayForLogger:FSLogLevelWarning];
+    //	[[[FSLogger logger:FSLogLevelError] listeners] addObject:relay];
 	
 	relay = [FSLogRelay relayForLogger:FSLogLevelInfo];
 	[[[FSLogger logger:(NSString *)FSLogLevelError] listeners] addObject:relay];
@@ -87,17 +87,17 @@ static NSMutableDictionary * kLoggers;
 @synthesize listeners = _listeners;
 @synthesize name = _name;
 @synthesize logsToNSLog = _logsToNSLog;
-	
+
 - (void)log:(NSString *)msg
   usePrefix:(BOOL)prefix {
 	if(_logsToNSLog)
 		if(self.name!=nil&&![self.name isEqualToString:@""]&&prefix==YES)
 			printf("%s",[[NSString stringWithFormat:@"%@: %@\n",_name,msg] UTF8String]);
-//			NSLog(@"%@: %@",_name,msg);
+    //			NSLog(@"%@: %@",_name,msg);
 		else
 			printf("%s",[[NSString stringWithFormat:@"%@\n",msg] UTF8String]);
-//			NSLog(msg,nil);
-		
+    //			NSLog(msg,nil);
+    
 	if(self.name==nil)
 		for(id<FSLogListener> l in _listeners)
 			[l log:msg];
@@ -112,10 +112,10 @@ static NSMutableDictionary * kLoggers;
 	if(_logsToNSLog)
 		if(self.name!=nil&&![self.name isEqualToString:@""])
 			printf("%s",[[NSString stringWithFormat:@"%@: %@\n",_name,msg] UTF8String]);
-//			NSLog(@"%@: %@",_name,msg);
+    //			NSLog(@"%@: %@",_name,msg);
 		else
 			printf("%s",[[NSString stringWithFormat:@"%@\n"] UTF8String]);
-//			NSLog(msg,nil);
+    //			NSLog(msg,nil);
 	
 	if(self.name==nil)
 		for(id<FSLogListener> l in _listeners)
@@ -130,10 +130,10 @@ static NSMutableDictionary * kLoggers;
 #pragma mark NSObject
 
 - (id)init {
-	if(self = [super init]) {
-		_listeners = [[NSMutableArray alloc] init];
-		_logsToNSLog = NO;
-	}
+    self = [super init];
+    if (!self) return nil;
+    _listeners = [[NSMutableArray alloc] init];
+    _logsToNSLog = NO;
 	return self;
 }
 
@@ -155,9 +155,9 @@ static NSMutableDictionary * kLoggers;
 @synthesize targetLogger = _targetLogger;
 
 - (id)initForLogger:(NSString *)targetLogger {
-	if(self = [super init]) {
-		_targetLogger = [targetLogger retain];
-	}
+    self = [super init];
+    if (!self) return nil;
+    _targetLogger = [targetLogger retain];
 	return self;
 }
 

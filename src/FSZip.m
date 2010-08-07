@@ -242,12 +242,12 @@ void logErrorStuff(int error) {
 #pragma mark NSObject
 
 - (id)init {
-	if(self=[super init]) {
-		lzip = NULL;
-		chunksize=1024;
-		inbuff=NULL;
-		files=-1;
-	}
+    self = [super init];
+    if(!self) return nil;
+    lzip = NULL;
+    chunksize=1024;
+    inbuff=NULL;
+    files=-1;
 	return self;
 }
 

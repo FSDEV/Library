@@ -16,7 +16,6 @@
 
 #include <stddef.h>
 #include <stdlib.h>
-#include <string.h>
 
 /* GENERIC/TEMPLATE LIST IMPLEMENTATION - IN C!
  * List variant: doubly-linked non-circular
@@ -33,6 +32,10 @@
  * Generally speaking, if you're planning on using this, you already know how
  * to make something like this, and you're just grabbing (and/or modifying) my
  * code to prevent yourself from having to bother doing it yourself.
+ * The implementation of this is such that you can run through the data all
+ * you want, but please use the generated functions for manipulating the data
+ * (inserting, deleting) because that way the functions can keep coherency in
+ * your code.
  */
 
 #define LIST_PROTOTYPE(name, type)                                            \
@@ -52,7 +55,7 @@ name##_list* name##_list_create() {                                           \
     list->prev = NULL;                                                        \
     return list;                                                              \
 }                                                                             \
-static inline                                                                 \
+static inline /* free everything from the given node forward */               \
 void name##_list_free_all(name##_list * l) {                                  \
     name##_list * cursor = l;                                                 \
     while(cursor->next != NULL) {                                             \
@@ -82,5 +85,19 @@ name##_list name##_list_remove(name##_list * start, /* if it doesn't work, */ \
     start_anc = start->prev; end_child = end->next;                           \
     start_anc->next = end_child; end_child->prev = start_anc;                 \
     return start; /* returns the removed list */                              \
-}
+} /* yo dawg, i herd u liek lists, so we put a list in ur list so u can */    \
+static inline /* list while u list! */                                        \
+void name##_list_insert_list(name##_list * into,                              \
+                             name##_list * start,                             \
+                             name##_list * end) {                             \
+    name##_list * into_child = into->next;                                    \
+    start->prev = into; end->next = into_child;                               \
+    into->next = start;                                                       \
+    if(into_child != NULL)                                                    \
+        into_child->prev = end;                                               \
+}                                                                             \
+LIST_CPLUSPLUS_ESC_END
+
+#endif
+
 

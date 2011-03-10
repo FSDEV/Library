@@ -117,3 +117,4 @@ void name##_vector_remove(name##_vector * v, register const size_t idx) {       
 VECTOR_CPLUSPLUS_ESC_END
 
 #endif
+

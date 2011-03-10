@@ -55,7 +55,17 @@ void name##_list_insert(name##_list * at,                                     \
     n_elem->prev = at;                                                        \
     at->next->prev = n_elem;                                                  \
     at->next = n_elem;                                                        \
+} /* cut elements from the list beginning at start and ending at end */       \
+static inline /* this does not check for sanity for you to optimize speed */  \
+name##_list name##_list_remove(name##_list * start, /* if it doesn't work, */ \
+                               name##_list * end) { /* chances are start */   \
+    name##_list * start_anc, end_child; /* and prev need to be switched */    \
+    start_anc = start->prev; end_child = end->next;                           \
+    start_anc->next = end_child; end_child->prev = start_anc;                 \
+    return start; /* returns the removed list */                              \
 }
+    
+                               
     
     
 

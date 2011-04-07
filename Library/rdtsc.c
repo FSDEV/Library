@@ -10,7 +10,7 @@
 #include "rdtsc.h"
 
 #if !defined(__WIN32)
-    #if defined(__X86_64) || defined(__X86)
+    #if defined(__X86_64) || defined(__X86) || defined(_LP64)
         uint64_t r;
         uint64_t rdtsc() {
             asm("cpuid\n\t"

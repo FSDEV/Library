@@ -31,7 +31,7 @@
         }
     #endif
 #else
-    #if defined(__X86_64) || defined(__X86)
+    #if defined(__X86_64) || defined(__X86) || defined(_LP64)
         uint64_t rdtsc();
     #else
         #warning "Sorry, I only have an IA32/IA64 version of RDTSC"

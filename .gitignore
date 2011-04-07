@@ -1,3 +1,4 @@
 build
 *.xcodeproj/*.mode[123]v[123]
 *.xcodeproj/*.pbxuser
+.DS_Store

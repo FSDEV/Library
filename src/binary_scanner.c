@@ -15,7 +15,14 @@ extern "C" {
     binary_scanner* mkscanner(chunkRetriever getter) {
         binary_scanner* scanner = malloc(sizeof(binary_scanner));
         scanner->getter = getter;
+        scanner->chunks = chunk_vector_create_heap(5);
         return scanner;
+    }
+    
+    void freescanner(binary_scanner* scanner) {
+        for(size_t i=0; i<scanner->chunks->size; ++i)
+            free(scanner->chunks->data[i]);
+        free(scanner);
     }
     
 #ifdef __cplusplus

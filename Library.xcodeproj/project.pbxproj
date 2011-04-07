@@ -43,6 +43,12 @@
 		DA59415C1211D79000C5F077 /* rdtsc.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5941581211D79000C5F077 /* rdtsc.c */; };
 		DA59415D1211D79000C5F077 /* rdtsc.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5941571211D79000C5F077 /* rdtsc.h */; };
 		DA59415E1211D79000C5F077 /* rdtsc.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5941581211D79000C5F077 /* rdtsc.c */; };
+		DA65A94D134E46C4001FD887 /* binary_scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = DA65A94B134E46C4001FD887 /* binary_scanner.c */; };
+		DA65A94E134E46C4001FD887 /* binary_scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = DA65A94B134E46C4001FD887 /* binary_scanner.c */; };
+		DA65A94F134E46C4001FD887 /* binary_scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = DA65A94B134E46C4001FD887 /* binary_scanner.c */; };
+		DA65A950134E46C4001FD887 /* binary_scanner.h in Headers */ = {isa = PBXBuildFile; fileRef = DA65A94C134E46C4001FD887 /* binary_scanner.h */; };
+		DA65A951134E46C4001FD887 /* binary_scanner.h in Headers */ = {isa = PBXBuildFile; fileRef = DA65A94C134E46C4001FD887 /* binary_scanner.h */; };
+		DA65A952134E46C4001FD887 /* binary_scanner.h in Headers */ = {isa = PBXBuildFile; fileRef = DA65A94C134E46C4001FD887 /* binary_scanner.h */; };
 		DAD469F8120D1B8100AD4602 /* FSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = DA08F7B411FE67020077E42D /* FSLog.h */; };
 		DAD469F9120D1B8100AD4602 /* FSZip.h in Headers */ = {isa = PBXBuildFile; fileRef = DA08F7B611FE67020077E42D /* FSZip.h */; };
 		DAD469FA120D1B8100AD4602 /* vector.h in Headers */ = {isa = PBXBuildFile; fileRef = DA08F7B811FE67020077E42D /* vector.h */; };
@@ -116,6 +122,8 @@
 		DA5652E5120914E400E1E650 /* FSZip-testRead */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "FSZip-testRead"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5941571211D79000C5F077 /* rdtsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdtsc.h; sourceTree = "<group>"; };
 		DA5941581211D79000C5F077 /* rdtsc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rdtsc.c; sourceTree = "<group>"; };
+		DA65A94B134E46C4001FD887 /* binary_scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = binary_scanner.c; sourceTree = "<group>"; };
+		DA65A94C134E46C4001FD887 /* binary_scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = binary_scanner.h; sourceTree = "<group>"; };
 		DAD469DE120D1B4500AD4602 /* Library32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Library32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD469DF120D1B4500AD4602 /* Library32-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Library32-Info.plist"; sourceTree = "<group>"; };
 		DAD469E9120D1B5600AD4602 /* Library64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Library64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +207,8 @@
 				DA08F7B811FE67020077E42D /* vector.h */,
 				DA5941571211D79000C5F077 /* rdtsc.h */,
 				DA5941581211D79000C5F077 /* rdtsc.c */,
+				DA65A94B134E46C4001FD887 /* binary_scanner.c */,
+				DA65A94C134E46C4001FD887 /* binary_scanner.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -321,6 +331,7 @@
 			files = (
 				DA59415B1211D79000C5F077 /* rdtsc.h in Headers */,
 				DA1559A4134A2E89002A71EE /* list.h in Headers */,
+				DA65A950134E46C4001FD887 /* binary_scanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +344,7 @@
 				DAD469FA120D1B8100AD4602 /* vector.h in Headers */,
 				DA5941591211D79000C5F077 /* rdtsc.h in Headers */,
 				DA1559A5134A2E89002A71EE /* list.h in Headers */,
+				DA65A951134E46C4001FD887 /* binary_scanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +354,7 @@
 			files = (
 				DA59415D1211D79000C5F077 /* rdtsc.h in Headers */,
 				DA1559A6134A2E89002A71EE /* list.h in Headers */,
+				DA65A952134E46C4001FD887 /* binary_scanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA59415C1211D79000C5F077 /* rdtsc.c in Sources */,
+				DA65A94D134E46C4001FD887 /* binary_scanner.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +730,7 @@
 				DAD469FD120D1BBE00AD4602 /* FSLog.m in Sources */,
 				DAD469FE120D1BBE00AD4602 /* FSZip.m in Sources */,
 				DA59415A1211D79000C5F077 /* rdtsc.c in Sources */,
+				DA65A94E134E46C4001FD887 /* binary_scanner.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA59415E1211D79000C5F077 /* rdtsc.c in Sources */,
+				DA65A94F134E46C4001FD887 /* binary_scanner.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,8 +20,7 @@ extern "C" {
     }
     
     void freescanner(binary_scanner* scanner) {
-        for(size_t i=0; i<scanner->chunks->size; ++i)
-            free(scanner->chunks->data[i]);
+        chunk_vector_free_heap(scanner->chunks);
         free(scanner);
     }
     

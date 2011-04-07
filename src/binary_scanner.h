@@ -18,9 +18,11 @@
 #ifdef __cplusplus
 extern "C" { // prevents C structs from being promoted to C++ objects
 #endif
+    
+    typedef unsigned short ushort;
 
     typedef struct {
-        void* data;
+        ushort* data;
         size_t len;
     } chunk;
     

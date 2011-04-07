@@ -4,95 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FSZip-testCompat.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
-		</dict>
-		<key>FSZip-testWrite.xcscheme</key>
+		<key>Library.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Library.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
-		</dict>
-		<key>List.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>Vector IA32.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Vector IA64.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>Vector.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>DA08F7C211FE675D0077E42D</key>
+		<key>DADAC7AC134E5E120053FCE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA08F7CF11FE67990077E42D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA08F7DC11FE68150077E42D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA1559AB134A2ECA002A71EE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA5652D11209138600E1E650</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA5652E4120914E400E1E650</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA65A958134E58D9001FD887</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA65A966134E58D9001FD887</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DAD469DD120D1B4500AD4602</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DAD469E8120D1B5600AD4602</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DAD469F2120D1B6700AD4602</key>
+		<key>DADAC7C1134E5E130053FCE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

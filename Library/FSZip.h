@@ -55,14 +55,14 @@
 
 @interface FSZip : NSObject {
 	struct zip * lzip;
-	int chunksize;
+	size_t chunksize;
 	void * inbuff;
 	int files;
     NSArray * _containedFiles;
 }
 
 @property(readwrite,assign) struct zip * lzip;	//! it is inadvisable to modify this
-@property(readwrite,assign) int chunksize;		//! how many bytes to read at a time
+@property(readwrite,assign) size_t chunksize;		//! how many bytes to read at a time
 @property(readwrite,assign) void * inbuff;		//! input buffer pointer
 @property(readonly) int files;					//! number of files in the archive
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA6075BA134E64D400434445 /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6075B9134E64D400434445 /* libzip.dylib */; };
+		DA6075BB134E64D400434445 /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6075B9134E64D400434445 /* libzip.dylib */; };
 		DADAC7B1134E5E120053FCE1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADAC7B0134E5E120053FCE1 /* Cocoa.framework */; };
 		DADAC7BB134E5E130053FCE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADAC7B9134E5E130053FCE1 /* InfoPlist.strings */; };
 		DADAC7C3134E5E130053FCE1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADAC7B0134E5E120053FCE1 /* Cocoa.framework */; };
@@ -20,9 +22,6 @@
 		DAFAA565134E5FDD00B6A158 /* FSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA55C134E5FDD00B6A158 /* FSLog.h */; };
 		DAFAA566134E5FDD00B6A158 /* FSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55D134E5FDD00B6A158 /* FSLog.m */; };
 		DAFAA567134E5FDD00B6A158 /* FSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55D134E5FDD00B6A158 /* FSLog.m */; };
-		DAFAA568134E5FDD00B6A158 /* FSZip.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA55E134E5FDD00B6A158 /* FSZip.h */; };
-		DAFAA569134E5FDD00B6A158 /* FSZip.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55F134E5FDD00B6A158 /* FSZip.m */; };
-		DAFAA56A134E5FDD00B6A158 /* FSZip.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55F134E5FDD00B6A158 /* FSZip.m */; };
 		DAFAA56B134E5FDD00B6A158 /* rdtsc.c in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA560134E5FDD00B6A158 /* rdtsc.c */; };
 		DAFAA56C134E5FDD00B6A158 /* rdtsc.c in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA560134E5FDD00B6A158 /* rdtsc.c */; };
 		DAFAA56D134E5FDD00B6A158 /* rdtsc.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA561134E5FDD00B6A158 /* rdtsc.h */; };
@@ -41,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA6075B9134E64D400434445 /* libzip.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzip.dylib; path = ../../../../usr/local/lib/libzip.dylib; sourceTree = "<group>"; };
 		DADAC7AD134E5E120053FCE1 /* Library.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Library.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADAC7B0134E5E120053FCE1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DADAC7B3134E5E120053FCE1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -73,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADAC7B1134E5E120053FCE1 /* Cocoa.framework in Frameworks */,
+				DA6075BA134E64D400434445 /* libzip.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +83,7 @@
 			files = (
 				DADAC7C3134E5E130053FCE1 /* Cocoa.framework in Frameworks */,
 				DADAC7C6134E5E130053FCE1 /* Library.framework in Frameworks */,
+				DA6075BB134E64D400434445 /* libzip.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +124,7 @@
 				DADAC7B3134E5E120053FCE1 /* AppKit.framework */,
 				DADAC7B4134E5E120053FCE1 /* CoreData.framework */,
 				DADAC7B5134E5E120053FCE1 /* Foundation.framework */,
+				DA6075B9134E64D400434445 /* libzip.dylib */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -183,7 +186,6 @@
 			files = (
 				DAFAA564134E5FDD00B6A158 /* binary_scanner.h in Headers */,
 				DAFAA565134E5FDD00B6A158 /* FSLog.h in Headers */,
-				DAFAA568134E5FDD00B6A158 /* FSZip.h in Headers */,
 				DAFAA56D134E5FDD00B6A158 /* rdtsc.h in Headers */,
 				DAFAA571134E601000B6A158 /* list.h in Headers */,
 				DAFAA572134E601000B6A158 /* vector.h in Headers */,
@@ -296,7 +298,6 @@
 			files = (
 				DAFAA562134E5FDD00B6A158 /* binary_scanner.c in Sources */,
 				DAFAA566134E5FDD00B6A158 /* FSLog.m in Sources */,
-				DAFAA569134E5FDD00B6A158 /* FSZip.m in Sources */,
 				DAFAA56B134E5FDD00B6A158 /* rdtsc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +309,6 @@
 				DADAC7D1134E5E130053FCE1 /* LibraryTests.m in Sources */,
 				DAFAA563134E5FDD00B6A158 /* binary_scanner.c in Sources */,
 				DAFAA567134E5FDD00B6A158 /* FSLog.m in Sources */,
-				DAFAA56A134E5FDD00B6A158 /* FSZip.m in Sources */,
 				DAFAA56C134E5FDD00B6A158 /* rdtsc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

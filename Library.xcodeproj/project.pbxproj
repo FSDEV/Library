@@ -14,6 +14,20 @@
 		DADAC7CC134E5E130053FCE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADAC7CA134E5E130053FCE1 /* InfoPlist.strings */; };
 		DADAC7CF134E5E130053FCE1 /* LibraryTests.h in Resources */ = {isa = PBXBuildFile; fileRef = DADAC7CE134E5E130053FCE1 /* LibraryTests.h */; };
 		DADAC7D1134E5E130053FCE1 /* LibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DADAC7D0134E5E130053FCE1 /* LibraryTests.m */; };
+		DAFAA562134E5FDD00B6A158 /* binary_scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55A134E5FDD00B6A158 /* binary_scanner.c */; };
+		DAFAA563134E5FDD00B6A158 /* binary_scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55A134E5FDD00B6A158 /* binary_scanner.c */; };
+		DAFAA564134E5FDD00B6A158 /* binary_scanner.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA55B134E5FDD00B6A158 /* binary_scanner.h */; };
+		DAFAA565134E5FDD00B6A158 /* FSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA55C134E5FDD00B6A158 /* FSLog.h */; };
+		DAFAA566134E5FDD00B6A158 /* FSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55D134E5FDD00B6A158 /* FSLog.m */; };
+		DAFAA567134E5FDD00B6A158 /* FSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55D134E5FDD00B6A158 /* FSLog.m */; };
+		DAFAA568134E5FDD00B6A158 /* FSZip.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA55E134E5FDD00B6A158 /* FSZip.h */; };
+		DAFAA569134E5FDD00B6A158 /* FSZip.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55F134E5FDD00B6A158 /* FSZip.m */; };
+		DAFAA56A134E5FDD00B6A158 /* FSZip.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA55F134E5FDD00B6A158 /* FSZip.m */; };
+		DAFAA56B134E5FDD00B6A158 /* rdtsc.c in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA560134E5FDD00B6A158 /* rdtsc.c */; };
+		DAFAA56C134E5FDD00B6A158 /* rdtsc.c in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA560134E5FDD00B6A158 /* rdtsc.c */; };
+		DAFAA56D134E5FDD00B6A158 /* rdtsc.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA561134E5FDD00B6A158 /* rdtsc.h */; };
+		DAFAA571134E601000B6A158 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA56F134E601000B6A158 /* list.h */; };
+		DAFAA572134E601000B6A158 /* vector.h in Headers */ = {isa = PBXBuildFile; fileRef = DAFAA570134E601000B6A158 /* vector.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +55,16 @@
 		DADAC7CD134E5E130053FCE1 /* LibraryTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibraryTests-Prefix.pch"; sourceTree = "<group>"; };
 		DADAC7CE134E5E130053FCE1 /* LibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryTests.h; sourceTree = "<group>"; };
 		DADAC7D0134E5E130053FCE1 /* LibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryTests.m; sourceTree = "<group>"; };
+		DAFAA55A134E5FDD00B6A158 /* binary_scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = binary_scanner.c; sourceTree = "<group>"; };
+		DAFAA55B134E5FDD00B6A158 /* binary_scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = binary_scanner.h; sourceTree = "<group>"; };
+		DAFAA55C134E5FDD00B6A158 /* FSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLog.h; sourceTree = "<group>"; };
+		DAFAA55D134E5FDD00B6A158 /* FSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLog.m; sourceTree = "<group>"; };
+		DAFAA55E134E5FDD00B6A158 /* FSZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSZip.h; sourceTree = "<group>"; };
+		DAFAA55F134E5FDD00B6A158 /* FSZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSZip.m; sourceTree = "<group>"; };
+		DAFAA560134E5FDD00B6A158 /* rdtsc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rdtsc.c; sourceTree = "<group>"; };
+		DAFAA561134E5FDD00B6A158 /* rdtsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdtsc.h; sourceTree = "<group>"; };
+		DAFAA56F134E601000B6A158 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
+		DAFAA570134E601000B6A158 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +129,16 @@
 		DADAC7B6134E5E130053FCE1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				DAFAA56F134E601000B6A158 /* list.h */,
+				DAFAA570134E601000B6A158 /* vector.h */,
+				DAFAA55A134E5FDD00B6A158 /* binary_scanner.c */,
+				DAFAA55B134E5FDD00B6A158 /* binary_scanner.h */,
+				DAFAA55C134E5FDD00B6A158 /* FSLog.h */,
+				DAFAA55D134E5FDD00B6A158 /* FSLog.m */,
+				DAFAA55E134E5FDD00B6A158 /* FSZip.h */,
+				DAFAA55F134E5FDD00B6A158 /* FSZip.m */,
+				DAFAA560134E5FDD00B6A158 /* rdtsc.c */,
+				DAFAA561134E5FDD00B6A158 /* rdtsc.h */,
 				DADAC7B7134E5E130053FCE1 /* Supporting Files */,
 			);
 			path = Library;
@@ -147,6 +181,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFAA564134E5FDD00B6A158 /* binary_scanner.h in Headers */,
+				DAFAA565134E5FDD00B6A158 /* FSLog.h in Headers */,
+				DAFAA568134E5FDD00B6A158 /* FSZip.h in Headers */,
+				DAFAA56D134E5FDD00B6A158 /* rdtsc.h in Headers */,
+				DAFAA571134E601000B6A158 /* list.h in Headers */,
+				DAFAA572134E601000B6A158 /* vector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFAA562134E5FDD00B6A158 /* binary_scanner.c in Sources */,
+				DAFAA566134E5FDD00B6A158 /* FSLog.m in Sources */,
+				DAFAA569134E5FDD00B6A158 /* FSZip.m in Sources */,
+				DAFAA56B134E5FDD00B6A158 /* rdtsc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +306,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADAC7D1134E5E130053FCE1 /* LibraryTests.m in Sources */,
+				DAFAA563134E5FDD00B6A158 /* binary_scanner.c in Sources */,
+				DAFAA567134E5FDD00B6A158 /* FSLog.m in Sources */,
+				DAFAA56A134E5FDD00B6A158 /* FSZip.m in Sources */,
+				DAFAA56C134E5FDD00B6A158 /* rdtsc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +470,7 @@
 				DADAC7D6134E5E130053FCE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DADAC7D7134E5E130053FCE1 /* Build configuration list for PBXNativeTarget "LibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +479,7 @@
 				DADAC7D9134E5E130053FCE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

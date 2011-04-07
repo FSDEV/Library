@@ -2,7 +2,7 @@
 //  binary_scanner.h
 //  Library
 //
-//  Created by Elder Christopher Miller on 4/7/11.
+//  Created by Christopher Miller on 4/7/11.
 //  Copyright 2011 FSDEV. All rights reserved.
 //
 

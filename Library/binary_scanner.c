@@ -2,7 +2,7 @@
 //  binary_scanner.c
 //  Library
 //
-//  Created by Elder Christopher Miller on 4/7/11.
+//  Created by Christopher Miller on 4/7/11.
 //  Copyright 2011 FSDEV. All rights reserved.
 //
 
@@ -20,6 +20,8 @@ extern "C" {
     }
     
     void freescanner(binary_scanner* scanner) {
+        for(size_t i=0; i<scanner->chunks->size; ++i)
+            free(scanner->chunks[i].data);
         chunk_vector_free_heap(scanner->chunks);
         free(scanner);
     }

@@ -20,6 +20,6 @@
             return r;
         }
     #else
-        #error "Sorry, I only have an IA32/IA64 version of RDTSC"
+        #warning "Sorry, I only have an IA32/IA64 version of RDTSC"
     #endif
 #endif

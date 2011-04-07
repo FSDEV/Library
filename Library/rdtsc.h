@@ -34,6 +34,6 @@
     #if defined(__X86_64) || defined(__X86)
         uint64_t rdtsc();
     #else
-        #error "Sorry, I only have an IA32/IA64 version of RDTSC"
+        #warning "Sorry, I only have an IA32/IA64 version of RDTSC"
     #endif
 #endif
